@@ -13,11 +13,12 @@ client = Groq(api_key=my_api_key)
 
 model = "llama-3.3-70b-versatile"
 role = "user"
-prompt = "Who are you?"
+prompt = "Suggest me what can I name you?"
 
+# SYSTEM ROLE
 message_system = {
     "role": "system",
-    "content": "You are my Personal Assistant named as Nexus"
+    "content": "You are my Personal Assistant and my name is Arsh"
 }
 
 message = {
@@ -27,8 +28,9 @@ message = {
 
 messages = [message_system,message]
 
+# SETTING TEMPERATURE
 response = client.chat.completions.create(
-    model=model, messages=messages
+    model=model, messages=messages, temperature=1
 )
 
 # print(response)
